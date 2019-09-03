@@ -42,7 +42,7 @@ function result() {
   }
 
   if(document.getElementById("uk").checked) {
-    var weight = Math.round(300 * 0.071429);
+    var weight = Math.round(300 * 0.071429) + ' stone';
     var temperature =  Math.round((94 - 32) / 1.8) + ' centigrade';
     newStory = newStory.replace('300', weight);
     newStory = newStory.replace('94 fahrenheit', temperature);
