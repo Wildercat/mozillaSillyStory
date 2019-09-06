@@ -13,11 +13,7 @@ async function fetchUsr() {
 }
 */
 
-var usrJson = (async function () {
-  let result = await fetch('https://randomuser.me/api/')
-})
-
-console.log(usrJson());
+async function main() {
 
 var storyText = 'It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
 var insertX = [
@@ -52,6 +48,10 @@ function result() {
   if(customName.value !== '') {
     var name = customName.value;
     newStory = newStory.replace('Bob', name);
+  } else {
+    let usrJson = await fetch('https://randomuser.me/api/')
+    .then(response => response.json());
+    console.log()
   }
 
   if(document.getElementById("uk").checked) {
@@ -65,3 +65,6 @@ function result() {
   story.textContent = newStory;
   story.style.visibility = 'visible';
 }
+}
+
+main();
